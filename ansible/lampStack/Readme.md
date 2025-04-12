@@ -5,6 +5,7 @@ This playbook installs and configures a LAMP stack (Linux, Apache, MySQL, PHP) u
 What It Does
 
 •	Installs Apache2, MySQL, and PHP
+
 •	Uses roles to keep the playbook organized
 	
  •	Includes a pre-task to make sure the community.mysql collection is installed
