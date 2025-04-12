@@ -1,0 +1,11 @@
+- name: Create Users 
+  hosts: localhost
+  tasks:
+    - name: Create Multiple users using condition and loop
+      user:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - devuser
+        - qauser
+      when: ansible_facts['os_family'] == "Debian" and ansible_facts['distribution_version'] >= "22.04"

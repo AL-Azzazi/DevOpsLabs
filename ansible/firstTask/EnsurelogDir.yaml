@@ -1,0 +1,11 @@
+- name: Ensure Log Directory Exists
+  hosts: localhost
+  tasks:
+    - name: Ensure the log directory exists
+      file:
+        path: /var/log/myapp
+        state: directory
+    - name: Debug message for Ubuntu
+      debug:
+        msg: "Log directory is in place!"
+      when: ansible_distribution == "Ubuntu"

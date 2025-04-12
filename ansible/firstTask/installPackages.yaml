@@ -1,0 +1,12 @@
+- name: Install Packages 
+  hosts: localhost
+  tasks:
+    - name: install multiple Packages using loop
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - htop
+        - iftop
+        - net-tools
+      when: ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"

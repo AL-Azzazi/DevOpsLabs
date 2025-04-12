@@ -1,0 +1,13 @@
+- name: copy config file
+  hosts: localhost
+  tasks: 
+    - name: copy nginx config file
+      copy: 
+        src: nginx.config
+        dest: /home/azzazi/Desktop/nginx/nginx.conf
+      notify: nginx config changed
+  handlers:
+    - name: nginx config changed
+      service:
+        name: nginx
+        state: restarted

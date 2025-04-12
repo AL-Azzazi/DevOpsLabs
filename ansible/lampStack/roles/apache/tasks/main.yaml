@@ -1,0 +1,17 @@
+- name: Install Apache
+  package:
+    name: apache2
+    state: present
+
+- name: Start and enable Apache
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Create test page
+  copy:
+    dest: /var/www/html/index.php
+    content: |
+      <h1>LAMP Stack Working!</h1>
+      <?php phpinfo(); ?>
