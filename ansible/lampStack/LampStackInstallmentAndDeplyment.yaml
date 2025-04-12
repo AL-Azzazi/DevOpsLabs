@@ -1,4 +1,3 @@
----
 - name: Deploy LAMP stack using roles
   hosts: localhost
   become: yes
