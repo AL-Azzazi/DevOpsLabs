@@ -4,11 +4,11 @@
   become: yes
   vars:
     mysql_root_password: "root123"  # Change this
-  # pre_tasks:
-  # - name: Install community.mysql collection
-  #   ansible.builtin.command: ansible-galaxy collection install community.mysql
-  #   changed_when: false
-  #   ignore_errors: yes
+  pre_tasks:
+  - name: Install community.mysql collection
+    ansible.builtin.command: ansible-galaxy collection install community.mysql
+    changed_when: false
+  ignore_errors: yes
   roles:
     - mysql
     - php
