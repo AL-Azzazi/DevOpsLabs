@@ -1,8 +1,8 @@
-LAMP Stack Setup with Ansible
+<h1>LAMP Stack Setup with Ansible</h1>
 
-This playbook installs and configures a LAMP stack (Linux, Apache, MySQL, PHP) using Ansible.
+<h2>This playbook installs and configures a LAMP stack (Linux, Apache, MySQL, PHP) using Ansible.</h2>
 
-What It Does
+<h3>What It Does</h3>
 
 •	Installs Apache2, MySQL, and PHP
 
@@ -10,13 +10,13 @@ What It Does
 	
  •	Includes a pre-task to make sure the community.mysql collection is installed
 
-How to Run
+<h3>How to Run</h3>
 
-Use the command below to run the playbook:
+<h4>Use the command below to run the playbook:</h4>
 
        ansible-playbook LampStackInstallmentAndDeplyment.yaml
 
-Notes
+<h3>Notes</h3>
 
 •	The MySQL password setup runs only once. You can comment it out after the first run to avoid errors.
 
