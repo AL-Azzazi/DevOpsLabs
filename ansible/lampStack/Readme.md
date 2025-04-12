@@ -18,4 +18,5 @@ Use the command below to run the playbook:
 Notes
 
 •	The MySQL password setup runs only once. You can comment it out after the first run to avoid errors.
+
 •	The structure is based on Ansible roles for better organization and reuse.
