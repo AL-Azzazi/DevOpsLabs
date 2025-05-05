@@ -1,0 +1,30 @@
+# ------------------ Builder Stage ------------------
+FROM python:3.11-alpine AS builder
+
+COPY ./app /app
+WORKDIR /app
+
+# Install build dependencies (if needed by Python packages)
+RUN apk add --no-cache gcc musl-dev libffi-dev
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+
+# # ------------------ Final Stage ------------------
+# FROM python:3.11-alpine
+
+# WORKDIR /app
+
+# # Copy installed packages from builder
+# COPY --from=builder /install /usr/local
+
+# # Copy app files
+# COPY . .
+# COPY .env .
+# COPY main.py .
+
+EXPOSE 8000
+
+CMD ["python", "main.py"]
