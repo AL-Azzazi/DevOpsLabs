@@ -1,0 +1,13 @@
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Restart Docker
+  service:
+    name: docker
+    state: restarted
+    enabled: yes
+
+- name: Reload user groups
+  command: newgrp docker
+  when: ansible_check_mode == False

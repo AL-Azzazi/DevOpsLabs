@@ -1,0 +1,36 @@
+- name: Update apt package index
+  apt:
+    update_cache: yes
+  tags: docker
+
+- name: Install prerequisite packages
+  apt:
+    name: "{{ prerequisite_packages }}"
+    state: present
+  tags: docker
+
+- name: Add Docker GPG key
+  apt_key:
+    url: "{{ docker_gpg_key }}"
+    state: present
+  tags: docker
+  notify: Update apt cache
+
+- name: Add Docker repository
+  apt_repository:
+    repo: "{{ docker_repo_url }}"
+    state: present
+  tags: docker
+  notify: Update apt cache
+
+- name: Install Docker packages
+  apt:
+    name: "{{ docker_packages }}"
+    state: present
+    update_cache: yes
+  tags: docker
+  notify: Restart Docker
+
+- name: Include post-install tasks
+  include_tasks: post_install.yml
+  tags: docker
